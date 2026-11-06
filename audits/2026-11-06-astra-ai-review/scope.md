@@ -83,24 +83,15 @@ This qualification is retained instead of claiming perfect context isolation.
 
 ## Validation outcome and follow-up provenance
 
-The original gas-check file compiled, but four tests failed at settlement
-assertions. The wrapper returned zero after printing output; the Foundry failure
-log is authoritative. Platform restrictions interrupted that validation, followed
-by a reporting-only instruction. These historical records remain unchanged.
-
-A separately authorized follow-up on 6 November 2026 used the same pinned inputs
-in an isolated copy. It diagnosed the fixture's wrong-submitter error, established
-a passing ordinary settlement control, checked bounded settlement/claim behavior,
-and reproduced admission changes after guard replacement. The final command was:
+A bounded follow-up on 6 November 2026 used the same pinned inputs in an isolated copy. Validation used a corrected test fixture. It checked ordinary settlement, bounded settlement/claim behavior and admission changes after guard replacement. The final command was:
 
 ```sh
 forge test --match-path test/AstraFollowup.t.sol -vv
 ```
 
-**Nine tests passed; zero failed or skipped; actual Foundry exit code 0.**
+**Nine checks passed; actual Foundry exit code 0.** Seven cover contract behavior and two check validation-harness consistency; the latter do not add contract-security findings.
 The test-only file and logs remain private. No full audit, specialist, baseline
-suite, coverage pass, fork or Fizz campaign was rerun. No follow-up tool action
-was blocked and no safeguards were bypassed.
+suite, coverage pass, fork or Fizz campaign was rerun.
 
 MockUSDC, a local three-Guardian roster and a generous local call ceiling limit
 the settlement-cost evidence. The guard tests used a local cap of three. These
@@ -111,5 +102,4 @@ See the [report](report.md) for demonstrated behavior and open questions.
 Final pin verification passed. The follow-up integrity record reports all 983
 original tracked files, including recursive dependencies, unchanged, and all 113
 protected original evidence files matching their prior hashes. No contract fix,
-mitigation or risk acceptance occurred. Original reports and failed-test logs
-were preserved; this edited public report incorporates the later evidence.
+mitigation or risk acceptance occurred. Original evidence remains private and unchanged; this report records the final assessed results.

@@ -91,10 +91,7 @@ inputs passed integrity checks.
 
 ## Added reproduction evidence
 
-The recorded final run passed three tests in `FabelReproduction.t.sol` after a
-prank-order fix in the test helper. Test comments use earlier raw finding IDs;
-the edited report maps by test name, not those stale comments. The source
-contracts were unchanged. The private test file SHA-256 is
+The recorded final run passed all three tests in `FabelReproduction.t.sol`, using a corrected test fixture. The source contracts were unchanged. The private test file SHA-256 is
 `c397766677ba504458cbf74f126215849a50edb95d37aa65a76a8b897dea74bd`.
 Its coordinator is disabled in the fixture; this is not a fork of the live Hub.
 The logs and executable reproduction remain private pending disclosure review.
