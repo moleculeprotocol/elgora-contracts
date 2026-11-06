@@ -100,6 +100,14 @@ identical deployment bytecode: source paths and compiler metadata can differ.
 Runtime configuration can change after deployment; inspect chain state for any
 assessment that depends on it.
 
+## Security reviews
+
+Latest AI-assisted security reviews: **6 November 2026**. See the
+[review index, scope and findings](audits/README.md) for the separate Fabel and
+Astra reports. These reviews used Pashov's open-source skills; they are not
+professional audits or endorsements by Pashov Audit Group. Validation limits
+and unresolved findings are recorded in each report.
+
 ## Security research
 
 Read the [contract overview](docs/PROTOCOL.md), [known behavior](KNOWN_ISSUES.md),
