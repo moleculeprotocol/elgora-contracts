@@ -2,9 +2,6 @@
 
 Standalone Solidity source and Foundry tests for Elgora’s escrow contracts.
 
-**Local review draft:** this repository has not been published. GitHub private
-vulnerability reporting must be enabled and its private form verified at publication.
-
 This snapshot uses source commit `8d40270d617a63dd5a7a35045db0d9ea3ddd9093`.
 Every Solidity file is unchanged from that snapshot. `SOURCE.json` records the
 file hashes and the dependency-path adjustment in `foundry.toml`.
@@ -13,7 +10,7 @@ file hashes and the dependency-path adjustment in `foundry.toml`.
 
 Install [Foundry](https://getfoundry.sh/introduction/installation/), Git, and a
 supported shell. This snapshot was tested with Foundry **1.5.1**.
-After publication, clone the repository and its pinned dependencies:
+Clone the repository and its pinned dependencies:
 
 ```sh
 git clone --recurse-submodules https://github.com/moleculeprotocol/elgora-contracts.git
