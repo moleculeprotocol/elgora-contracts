@@ -27,7 +27,7 @@ Counts describe records in these reviews, including reproduced known risks. They
 | Astra | 2 |
 | Fabel | 7 |
 
-Astra's rated records are ASTRA-002/006 (Medium) and ASTRA-003 (Low). Fabel's are FABEL-001 (Medium) and FABEL-002/003 (Low). Astra's rejected arithmetic candidate and excluded administrative candidate are not counted. Fabel's seven additional lead topics group nine raw leads after removing the stale-verdict duplicate and merging the two gas leads. Some describe documented trust or policy boundaries; An unresolved lead is not a confirmed vulnerability.
+Astra's rated records are ASTRA-002/006 (Medium) and ASTRA-003 (Low). Fabel's are FABEL-001 (Medium) and FABEL-002/003 (Low). ASTRA-006 is the settlement timeout already documented in [KNOWN_ISSUES.md](../KNOWN_ISSUES.md); Fabel references that behavior without a separate rating. The two reviews count different sets of records, so their columns need not match. Astra's rejected arithmetic candidate and excluded administrative candidate are not counted. Fabel's seven additional lead topics group nine raw leads after removing the stale-verdict duplicate and merging the two gas leads. Some describe documented trust or policy boundaries. An unresolved lead is not a confirmed vulnerability.
 
 **No Critical or High findings reported does not mean Critical or High vulnerabilities cannot exist.** Both reviews have explicit scope and validation limits. No fix or risk acceptance is recorded.
 
@@ -84,6 +84,12 @@ exists. Agreement between models is not independent runtime validation.
 
 Read `report.md` for the complete assessed findings, supporting evidence, recommendations and lead dispositions, `scope.md` for methods and limitations, and
 `findings-status.md` for the latest assessment and resolution.
+
+"Unresolved" means no source change, deployed change or owner decision has
+been recorded for the item; it says nothing about how likely or how severe the
+item is. When a fix lands, record the commit or release in the review's
+`findings-status.md`, and say whether it reaches the immutable deployed Hub or
+only future deployments.
 
 Reproduced
 behavior, novelty, specification compliance and production reachability are

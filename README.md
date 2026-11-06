@@ -26,7 +26,7 @@ and unresolved findings are recorded in each report.
 | Astra | 2 |
 | Fabel | 7 |
 
-Counts include known risks and overlap between reviews; do not sum the rows.
+Counts include known risks and overlap between reviews; do not sum the rows. Astra's Medium count includes ASTRA-006, the settlement timeout already documented in [KNOWN_ISSUES.md](KNOWN_ISSUES.md); Fabel references it without a rating.
 Unresolved leads are not confirmed vulnerabilities. See the [counting rules and severity definitions](audits/README.md#severity-summary).
 **No Critical or High findings reported does not mean such vulnerabilities cannot exist.**
 
@@ -110,6 +110,8 @@ Base mainnet (chain ID **8453**), deployment block **51752389**:
 | USDC | [0x833589fcd6edb6e08f4c7c32d4f71b54bda02913](https://basescan.org/address/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913#code) |
 
 [Hub deployment transaction](https://basescan.org/tx/0xd62f407b770c8fca82a9704b30ed0605d9e3ed2b56278dcca152958063f7f469).
+[Guard deployment transaction](https://basescan.org/tx/0x336f42db161d8a9bc232310703407263acdd2f3fd064e14a2c235746dfdda9d9).
+A machine-readable copy of this table is in [deployments/base-mainnet.json](deployments/base-mainnet.json).
 The payout scheme was deployed separately:
 [payout scheme deployment transaction](https://basescan.org/tx/0x10649e5471c35259983816cc5004a115d64c7cc89c47a84ee2c7e5ed760cc9b2).
 
