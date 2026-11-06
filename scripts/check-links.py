@@ -3,7 +3,8 @@
 
 Checks every `[text](target)` whose target is not an external URL: the target
 file must exist, and a `#fragment` must match a heading in the target file,
-using GitHub's heading-id rules. External URLs are not fetched; the pinned
+using GitHub's heading-id rules. Links and headings inside fenced code blocks
+are ignored, as GitHub renders them literally. External URLs are not fetched; the pinned
 commit links in the reviews are left to their readers. Run from the repository
 root: `python3 scripts/check-links.py`. Exit code 1 lists every broken link.
 """
@@ -17,6 +18,12 @@ ROOTS = ["README.md", "KNOWN_ISSUES.md", "SECURITY.md", "docs", "audits"]
 LINK = re.compile(r"(?<!!)\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 HEADING = re.compile(r"^#{1,6}\s+(.*?)\s*#*\s*$", re.MULTILINE)
 INLINE_CODE = re.compile(r"`[^`]*`")
+FENCED_CODE = re.compile(r"^(`{3,}|~{3,})[^\n]*\n.*?^\1[ \t]*$", re.MULTILINE | re.DOTALL)
+
+
+def prose(path: Path) -> str:
+    """Return the file's text without fenced code blocks, which GitHub renders literally."""
+    return FENCED_CODE.sub("", path.read_text(encoding="utf-8"))
 
 
 def markdown_files() -> list[Path]:
@@ -41,7 +48,7 @@ def github_anchor(heading: str) -> str:
 def anchors(path: Path) -> set[str]:
     found: dict[str, int] = {}
     result: set[str] = set()
-    for match in HEADING.finditer(path.read_text(encoding="utf-8")):
+    for match in HEADING.finditer(prose(path)):
         base = github_anchor(match.group(1))
         count = found.get(base, 0)
         result.add(base if count == 0 else f"{base}-{count}")
@@ -51,8 +58,7 @@ def anchors(path: Path) -> set[str]:
 
 def check(path: Path) -> list[str]:
     errors: list[str] = []
-    text = path.read_text(encoding="utf-8")
-    for match in LINK.finditer(text):
+    for match in LINK.finditer(prose(path)):
         target = match.group(1)
         if target.startswith(("http://", "https://", "mailto:")):
             continue
