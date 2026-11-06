@@ -71,9 +71,10 @@ submission quality; junk submissions can consume seats.
 | Posters and Solvers | Untrusted | Their own escrow, submissions and claims only |
 | Escrow token issuer (USDC) | External | Can pause or blacklist addresses; the Hub has no rescue path |
 
-Replacing the submission guard on an open bounty starts seat counts from zero
-in the new guard and can reject an existing Solver's revision (ASTRA-004). It
-is not a remedy for exhausted seats.
+Replacing the submission guard with a fresh CappedSubmissionGuard does not
+carry over existing seat history and can prevent an existing Solver from
+revising (ASTRA-004). Replacement is not a guaranteed remedy for exhausted
+seats.
 
 Role holders are live chain state. Read them from the Hub (`owner()`,
 `coordinator()`, `coordinatorGracePeriod()`, `guardianRosterAdmin()`,
