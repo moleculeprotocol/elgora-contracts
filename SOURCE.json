@@ -1,0 +1,26 @@
+{
+  "source_commit": "8d40270d617a63dd5a7a35045db0d9ea3ddd9093",
+  "source_directory": "packages/contracts",
+  "changes": [
+    "foundry.toml: dependency paths changed from ../../lib to lib"
+  ],
+  "sha256": {
+    "foundry.toml": "bf185aba1254af775ef4d6a6132da4731497af007445b867ee876bceb7855bb1",
+    "script/DeployElgoraHub.s.sol": "16b2bf9b5c49aafefdd1a4855840cf1ed157f5181342947a16c8ac32cc61d54c",
+    "script/DeployLocalDev.s.sol": "030d46c65541e7f77bc9310d307f943c123ff69d947dd223eee9fb244693a8db",
+    "src/CappedSubmissionGuard.sol": "70ad6cf85833a6024bc023d103f016b54d8f698826eca0f0800badaa31fd373e",
+    "src/ElgoraHub.sol": "7465c2421fc942e473ce166369d3ac3bb3c00b9efe33cae837470a05a0aa0b6b",
+    "src/IERC3009.sol": "cb601dad3f1f6dd48ff860d51746d2e6b2cc620c182d0a7fa9d920f7466ea079",
+    "src/IPayoutScheme.sol": "5a5c543e23cdad5f76cb1303de1b7d59c977e2dd2ca94cb3dc5804ec42e833ea",
+    "src/ISubmissionGuard.sol": "22baf306fb6ca563f5713c3a9032afb58379ff2eaac91d27c3d6ba54f6f9c769",
+    "src/PassThroughSubmissionGuard.sol": "c64748e49bad6b10fef8ea8892047712cf0d853cf16c2a88287a850e78f9d26e",
+    "src/WinnerTakesAllPayoutScheme.sol": "0149aee8f04e5e4cb15c89d1b96f4822cd3ae9222e5aa3d406e26479380331c2",
+    "test/CappedSubmissionGuard.t.sol": "18406a929f907eccec016d2f0d66d3c1d75f058ad6898009a683419e3f298106",
+    "test/DeployScripts.t.sol": "911e64acfe8bd5d3e55e374e6ad07a11a007a01462832fc31dab516e468ef47d",
+    "test/ElgoraHub.t.sol": "53f35ead883f53564fca40515f3ce89f815ebd068c524bbc88f0ddfa8af1a83c",
+    "test/ElgoraHubInvariant.t.sol": "cc15ab1af26449d84b66482057f00cc847c7c9ffc4fff7464657e71719a05c10",
+    "test/MockUSDC.sol": "52c0f0c4598838cf027303b583c091137e4e2b2c498699419ea39ecc54f68347",
+    "test/ReentrantUSDC.sol": "c3214e3a53d598a5cba26c082b34bdddca7d96fb1295a3ce4a8d6f34f193e7c6",
+    "test/fork/BaseSepoliaUsdcFork.t.sol": "82ba3d6d7a71416a444411c3a38807a18049cba98e3bc79a13cf72d3decd1b01"
+  }
+}
