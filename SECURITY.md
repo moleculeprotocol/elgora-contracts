@@ -28,7 +28,8 @@ Read [KNOWN_ISSUES.md](KNOWN_ISSUES.md) for documented timeout behavior. Explain
 any new mechanism or impact beyond that description in your private report.
 A documented behavior is not automatically an accepted risk or bounty exclusion.
 
-Private reporting does not itself guarantee a reward or count as a Submission
-to an Elgora bounty. For bounty eligibility, submit through the separately
-published bounty workflow and follow its committed terms. Coordinate disclosure
-privately with maintainers before publishing exploit details.
+No bounty is announced by this repository. Private reporting does not itself
+guarantee a reward or count as a Submission to an Elgora bounty. Any future
+bounty will define its own eligibility and submission requirements in its
+committed terms. Coordinate disclosure privately with maintainers before
+publishing exploit details.

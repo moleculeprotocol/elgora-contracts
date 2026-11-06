@@ -12,16 +12,15 @@ file hashes and the dependency-path adjustment in `foundry.toml`.
 ## Build and test
 
 Install [Foundry](https://getfoundry.sh/introduction/installation/), Git, and a
-supported shell. This snapshot was tested with Foundry **1.5.1**. Run these
-commands from the repository root. After publication, you can obtain the
-repository and its pinned dependencies with:
+supported shell. This snapshot was tested with Foundry **1.5.1**.
+After publication, clone the repository and its pinned dependencies:
 
 ```sh
 git clone --recurse-submodules https://github.com/moleculeprotocol/elgora-contracts.git
 cd elgora-contracts
 ```
 
-For an existing Git checkout:
+Then run the following from the repository root (also works for an existing checkout):
 
 ```sh
 git submodule update --init --recursive
@@ -110,9 +109,10 @@ Read the [contract overview](docs/PROTOCOL.md), [known behavior](KNOWN_ISSUES.md
 and [private reporting policy](SECURITY.md) before starting research.
 
 Run experiments locally or on a local fork. Passing this suite does not establish
-that the contracts are free of vulnerabilities. This repository does not define
-bounty eligibility, rewards, deadlines, or authorization to attack live systems;
-use the separately published bounty terms for those details. Report vulnerabilities
+that the contracts are free of vulnerabilities. No bounty is announced by this
+repository. It does not promise rewards or authorize attacks on live systems.
+Any future bounty will define its own eligibility, rewards, deadlines, and
+submission requirements in its committed terms. Report vulnerabilities
 through GitHub private vulnerability reporting as described in [SECURITY.md](SECURITY.md).
 Do not disclose unpatched exploits in public issues or pull requests.
 
