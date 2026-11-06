@@ -48,10 +48,10 @@ These are shared reading guidelines, not a retroactive rescoring formula. Each f
 
 Severity, evidence status and resolution are separate. “Reproduced” describes observed behavior; “known” describes prior documentation; neither means “fixed” or “accepted”.
 
-| Review date (UTC) | Reviewer label — recorded host model (effort) | Audited public commit | Coverage and validation | Report |
-| --- | --- | --- | --- | --- |
-| 2026-11-06 | `fabel` — `claude-fable-5-1` (High) | `744d1e17d8c509ae00c15fb1abf286c2f307290f` | 12/12 roles; three local mechanism tests passed; live preconditions unchecked | [Fabel report](2026-11-06-fabel-ai-review/report.md) |
-| 2026-11-06 | `astra` — `gpt-6-astra` (High) | `744d1e17d8c509ae00c15fb1abf286c2f307290f` | 12/12 roles; nine follow-up local checks passed; two vulnerability questions unresolved | [Astra report](2026-11-06-astra-ai-review/report.md) |
+| Review date (UTC) | Reviewer label — recorded host model (effort) | Audited public commit | Coverage and validation | Report | Subsequent fix or release |
+| --- | --- | --- | --- | --- | --- |
+| 2026-11-06 | `fabel` — `claude-fable-5-1` (High) | `744d1e17d8c509ae00c15fb1abf286c2f307290f` | 12/12 roles; three local mechanism tests passed; live preconditions unchecked | [Fabel report](2026-11-06-fabel-ai-review/report.md) | none yet |
+| 2026-11-06 | `astra` — `gpt-6-astra` (High) | `744d1e17d8c509ae00c15fb1abf286c2f307290f` | 12/12 roles; nine follow-up local checks passed; two vulnerability questions unresolved | [Astra report](2026-11-06-astra-ai-review/report.md) | none yet |
 
 The independent runs used the same code and skill pins. The publication editor
 compared their completed reports afterward. Model identifiers above are recorded host identifiers, not independently
@@ -85,6 +85,12 @@ exists. Agreement between models is not independent runtime validation.
 
 Read `report.md` for the complete assessed findings, supporting evidence, recommendations and lead dispositions, `scope.md` for methods and limitations, and
 `findings-status.md` for the latest assessment and resolution.
+
+"Unresolved" means no source change, deployed change or owner decision has
+been recorded for the item; it says nothing about how likely or how severe the
+item is. When a fix lands, record the commit or release in the "Subsequent fix
+or release" column above and in the review's `findings-status.md`, and say
+whether it reaches the immutable deployed Hub or only future deployments.
 
 Reproduced
 behavior, novelty, specification compliance and production reachability are

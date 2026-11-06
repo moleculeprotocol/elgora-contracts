@@ -24,8 +24,10 @@ data, or credentials in a report. Do not test by moving or disrupting live funds
 
 ## Known behavior and bounty terms
 
-Read [KNOWN_ISSUES.md](KNOWN_ISSUES.md) for documented timeout behavior. Explain
-any new mechanism or impact beyond that description in your private report.
+Read [KNOWN_ISSUES.md](KNOWN_ISSUES.md) for documented behavior and the
+[security review index](audits/README.md) for what earlier reviews already
+found and how each item stands. Explain any new mechanism or impact beyond
+those descriptions in your private report.
 A documented behavior is not automatically an accepted risk or bounty exclusion.
 
 No bounty is announced by this repository. Private reporting does not itself
