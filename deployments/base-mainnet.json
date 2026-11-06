@@ -1,0 +1,29 @@
+{
+  "network": "base-mainnet",
+  "chain_id": 8453,
+  "source_commit": "8d40270d617a63dd5a7a35045db0d9ea3ddd9093",
+  "public_snapshot_commit": "744d1e17d8c509ae00c15fb1abf286c2f307290f",
+  "deployment_block": 51752389,
+  "contracts": {
+    "ElgoraHub": {
+      "address": "0x8f80d1183cd983b01b0c9ac6777cc732ec9800de",
+      "deployment_transaction": "0xd62f407b770c8fca82a9704b30ed0605d9e3ed2b56278dcca152958063f7f469"
+    },
+    "CappedSubmissionGuard": {
+      "address": "0xe0d404c22228b03d5b8a715cb569c4944bc5a27a",
+      "note": "Deployment transaction not recorded in README.md"
+    },
+    "WinnerTakesAllPayoutScheme": {
+      "address": "0x36d304993cb1575a2f9b8a0388b18aa5ec6d7a61",
+      "deployment_transaction": "0x10649e5471c35259983816cc5004a115d64c7cc89c47a84ee2c7e5ed760cc9b2"
+    },
+    "ESCROW_TOKEN_USDC": {
+      "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "note": "Third-party token; not deployed by this repository"
+    }
+  },
+  "notes": [
+    "Transcribed from README.md 'Reference deployment'; the README stays the human-readable owner.",
+    "Runtime configuration can change after deployment; inspect chain state for any assessment that depends on it."
+  ]
+}

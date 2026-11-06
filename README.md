@@ -110,6 +110,7 @@ Base mainnet (chain ID **8453**), deployment block **51752389**:
 | USDC | [0x833589fcd6edb6e08f4c7c32d4f71b54bda02913](https://basescan.org/address/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913#code) |
 
 [Hub deployment transaction](https://basescan.org/tx/0xd62f407b770c8fca82a9704b30ed0605d9e3ed2b56278dcca152958063f7f469).
+A machine-readable copy of this table is in [deployments/base-mainnet.json](deployments/base-mainnet.json).
 The payout scheme was deployed separately:
 [payout scheme deployment transaction](https://basescan.org/tx/0x10649e5471c35259983816cc5004a115d64c7cc89c47a84ee2c7e5ed760cc9b2).
 
