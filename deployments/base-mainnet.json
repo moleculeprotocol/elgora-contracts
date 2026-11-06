@@ -11,7 +11,7 @@
     },
     "CappedSubmissionGuard": {
       "address": "0xe0d404c22228b03d5b8a715cb569c4944bc5a27a",
-      "note": "Deployment transaction not recorded in README.md"
+      "deployment_transaction": "0x336f42db161d8a9bc232310703407263acdd2f3fd064e14a2c235746dfdda9d9"
     },
     "WinnerTakesAllPayoutScheme": {
       "address": "0x36d304993cb1575a2f9b8a0388b18aa5ec6d7a61",
@@ -24,6 +24,6 @@
   },
   "notes": [
     "Transcribed from README.md 'Reference deployment'; the README stays the human-readable owner.",
-    "Runtime configuration can change after deployment; inspect chain state for any assessment that depends on it."
+    "Runtime configuration and role holders can change after deployment; read them on chain (see docs/PROTOCOL.md, Actors and trust levels)."
   ]
 }

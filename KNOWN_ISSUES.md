@@ -41,9 +41,10 @@ committed terms before publication; this document alone does not change them.
 
 ## Behavior reproduced by the 6 November 2026 security reviews
 
-Two independent AI-assisted reviews reproduced the following behavior against
-this snapshot. Each item is documented here so researchers do not report it as
-new. Listing it is not acceptance, a fix, or a bounty exclusion.
+Two independent AI-assisted reviews ran against this snapshot. One or both
+reproduced each behavior below; each item names its review records. Each item is
+documented here so researchers do not report it as new. Listing it is not
+acceptance, a fix, or a bounty exclusion.
 
 ### The submission cap counts addresses, not participants
 
@@ -51,9 +52,8 @@ new. Listing it is not acceptance, a fix, or a bounty exclusion.
 is reached, and a seat is never released. Nothing checks that different
 addresses belong to different people or that a submission has content. Once the
 cap is reached, later Solvers cannot submit for the rest of the submission
-window. Raising the cap adds seats; it evicts nobody. A product decision on the
-cost of a seat is pending. See FABEL-001 and ASTRA-002 in the
-[combined findings map](audits/README.md#combined-findings-map).
+window. Raising the cap adds seats; it evicts nobody. See FABEL-001 and
+ASTRA-002 in the [combined findings map](audits/README.md#combined-findings-map).
 
 ### The Guardian fee applies to a nonempty bounty even when no submission qualifies
 
@@ -67,17 +67,19 @@ ASTRA-003 in the [combined findings map](audits/README.md#combined-findings-map)
 
 ### An award Verdict committed before the submission deadline can go stale
 
-`commitVerdict` has no lower time bound, so a Guardian may name a winner and a
-submission commitment while `submit()` is still open. If the named Solver then
-replaces that commitment and the Verdicts are not revised before
-`judgingDeadlineAt`, `settle()` reverts with `NoActiveSubmission` for the rest
-of the settlement window and only the timeout refund described above remains.
-This is a second route to the timeout outcome, triggered by a Solver action
-rather than by elapsed time. The reviews did not observe whether Guardians vote
-before the submission deadline in practice. See FABEL-003 in the
+`commitVerdict` has no lower time bound, so Guardians may name a winner and a
+submission commitment while `submit()` is still open. The named Solver can then
+replace that commitment. If the matching two-thirds quorum still names the
+replaced commitment when judging closes at `judgingDeadlineAt`, `settle()`
+reverts with `NoActiveSubmission` for the rest of the settlement window. A late
+first-ever Verdict cannot form a second quorum, so only the timeout refund
+described above remains. A single stale Verdict outside the quorum does not
+block settlement. This is a second route to the timeout outcome, triggered by a
+Solver action rather than by elapsed time. The review did not observe whether
+Guardians vote before the submission deadline in practice. See FABEL-003 in the
 [combined findings map](audits/README.md#combined-findings-map).
 
-## Under investigation
+## Unresolved questions
 
 Two leads from the same reviews are recorded but not established as
 vulnerabilities: the settlement cost of large Verdict payout data (ASTRA-001),

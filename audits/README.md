@@ -16,10 +16,9 @@ Counts describe records in these reviews, including reproduced known risks. They
 | --- | ---: | ---: |
 | Critical | 0 | 0 |
 | High | 0 | 0 |
-| Medium | 1 | 1 |
+| Medium | 2 | 1 |
 | Low | 1 | 2 |
 | Informational | 0 | 0 |
-| Documented timeout behavior ([KNOWN_ISSUES.md](../KNOWN_ISSUES.md)) | 1 record (ASTRA-006, rated Medium) | referenced, not rated |
 
 **Unresolved leads — severity not assigned**
 
@@ -28,7 +27,7 @@ Counts describe records in these reviews, including reproduced known risks. They
 | Astra | 2 |
 | Fabel | 7 |
 
-Astra's rated findings are ASTRA-002 (Medium) and ASTRA-003 (Low). Fabel's are FABEL-001 (Medium) and FABEL-002/003 (Low). The settlement timeout documented in KNOWN_ISSUES.md before either review began is shown on its own row: Astra records it as ASTRA-006 and rates it Medium; Fabel references it without a separate rating. Keeping it apart lets the two reviews count the same set of records. Astra's rejected arithmetic candidate and excluded administrative candidate are not counted. Fabel's seven additional lead topics group nine raw leads after removing the stale-verdict duplicate and merging the two gas leads. Some describe documented trust or policy boundaries. An unresolved lead is not a confirmed vulnerability.
+Astra's rated records are ASTRA-002/006 (Medium) and ASTRA-003 (Low). Fabel's are FABEL-001 (Medium) and FABEL-002/003 (Low). ASTRA-006 is the settlement timeout already documented in [KNOWN_ISSUES.md](../KNOWN_ISSUES.md); Fabel references that behavior without a separate rating. The two reviews count different sets of records, so their columns need not match. Astra's rejected arithmetic candidate and excluded administrative candidate are not counted. Fabel's seven additional lead topics group nine raw leads after removing the stale-verdict duplicate and merging the two gas leads. Some describe documented trust or policy boundaries. An unresolved lead is not a confirmed vulnerability.
 
 **No Critical or High findings reported does not mean Critical or High vulnerabilities cannot exist.** Both reviews have explicit scope and validation limits. No fix or risk acceptance is recorded.
 
@@ -48,10 +47,10 @@ These are shared reading guidelines, not a retroactive rescoring formula. Each f
 
 Severity, evidence status and resolution are separate. “Reproduced” describes observed behavior; “known” describes prior documentation; neither means “fixed” or “accepted”.
 
-| Review date (UTC) | Reviewer label — recorded host model (effort) | Audited public commit | Coverage and validation | Report | Subsequent fix or release |
-| --- | --- | --- | --- | --- | --- |
-| 2026-11-06 | `fabel` — `claude-fable-5-1` (High) | `744d1e17d8c509ae00c15fb1abf286c2f307290f` | 12/12 roles; three local mechanism tests passed; live preconditions unchecked | [Fabel report](2026-11-06-fabel-ai-review/report.md) | none yet |
-| 2026-11-06 | `astra` — `gpt-6-astra` (High) | `744d1e17d8c509ae00c15fb1abf286c2f307290f` | 12/12 roles; nine follow-up local checks passed; two vulnerability questions unresolved | [Astra report](2026-11-06-astra-ai-review/report.md) | none yet |
+| Review date (UTC) | Reviewer label — recorded host model (effort) | Audited public commit | Coverage and validation | Report |
+| --- | --- | --- | --- | --- |
+| 2026-11-06 | `fabel` — `claude-fable-5-1` (High) | `744d1e17d8c509ae00c15fb1abf286c2f307290f` | 12/12 roles; three local mechanism tests passed; live preconditions unchecked | [Fabel report](2026-11-06-fabel-ai-review/report.md) |
+| 2026-11-06 | `astra` — `gpt-6-astra` (High) | `744d1e17d8c509ae00c15fb1abf286c2f307290f` | 12/12 roles; nine follow-up local checks passed; two vulnerability questions unresolved | [Astra report](2026-11-06-astra-ai-review/report.md) |
 
 The independent runs used the same code and skill pins. The publication editor
 compared their completed reports afterward. Model identifiers above are recorded host identifiers, not independently
@@ -88,9 +87,9 @@ Read `report.md` for the complete assessed findings, supporting evidence, recomm
 
 "Unresolved" means no source change, deployed change or owner decision has
 been recorded for the item; it says nothing about how likely or how severe the
-item is. When a fix lands, record the commit or release in the "Subsequent fix
-or release" column above and in the review's `findings-status.md`, and say
-whether it reaches the immutable deployed Hub or only future deployments.
+item is. When a fix lands, record the commit or release in the review's
+`findings-status.md`, and say whether it reaches the immutable deployed Hub or
+only future deployments.
 
 Reproduced
 behavior, novelty, specification compliance and production reachability are

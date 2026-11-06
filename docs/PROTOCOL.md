@@ -34,7 +34,8 @@ Guardian's first-ever Verdict can still arrive later while the bounty is open.
 A configured coordinator gets exclusive settlement access during its grace
 period, measured from the later of first consensus and the judging deadline.
 After the grace period, other callers can settle if the settlement window is
-still open. The coordinator controls who calls first, not which outcome wins.
+still open. The coordinator controls who calls first, not which outcome the tally
+produces. A coordinator that never settles can still let the bounty time out.
 
 Consensus alone does not reserve a winner payout. If settlement misses its
 window, the full-refund timeout path can apply even with Awarded consensus.
@@ -62,29 +63,24 @@ submission quality; junk submissions can consume seats.
 
 | Actor | Trust level | What it controls |
 | --- | --- | --- |
-| Hub owner | Trusted, two-step transfer, no timelock | Live settings (submission guard, coordinator, grace period, fee recipients and rates for future bounties, pause) |
+| Hub owner | Trusted; two-step transfer; no timelock | On open bounties: the submission guard, the coordinator and its grace period (no upper bound), and pause, which also blocks every claim. Fee recipients: a new recipient claims all fees already accrued. For new bounties only: fee rates, escrow and duration bounds, review window and payout scheme. Names the roster administrator. Can renounce ownership; renouncing while paused leaves claims blocked permanently (ASTRA-007) |
 | Guardian roster administrator | Trusted for future bounties only | Roster membership; open bounties keep their pinned roster |
 | Guardians on a pinned roster | Bounded by the two-thirds matching threshold | Outcome, winner and payout data of each bounty they judge |
-| Coordinator | Bounded to settlement timing | Exclusive right to call `settle()` during its grace period; cannot change the tallied outcome |
-| Guard owner | Trusted for admission policy | Seat caps per bounty and the default cap |
+| Coordinator | Trusted for settlement timing | Exclusive right to call `settle()` during its grace period. It cannot choose a different outcome, but if it does not settle and the grace period covers the rest of the settlement window, the bounty times out with a full Poster refund |
+| Guard owner | Trusted for admission policy | Seat caps per bounty and the default cap; raising a cap adds seats but evicts none |
 | Posters and Solvers | Untrusted | Their own escrow, submissions and claims only |
 | Escrow token issuer (USDC) | External | Can pause or blacklist addresses; the Hub has no rescue path |
 
-### Documented behavior and status
+Replacing the submission guard on an open bounty starts seat counts from zero
+in the new guard and can reject an existing Solver's revision (ASTRA-004). It
+is not a remedy for exhausted seats.
 
-Status words: `documented` means described here and in [KNOWN_ISSUES.md](../KNOWN_ISSUES.md);
-`under investigation` means a review lead that is not established as a
-vulnerability; `fixed in <commit>` and `accepted` are written only when the
-owners record that decision. None of the rows below is accepted.
-
-| Behavior | Mitigation today | Status | Records |
-| --- | --- | --- | --- |
-| Settlement timeout can override an unsettled award consensus | Settle before `settlementTimeoutAt`; coordinator can settle during its grace period | documented | KNOWN_ISSUES.md, ASTRA-006 |
-| Submission cap counts addresses, not participants | Owner can raise a bounty's cap or replace the guard; neither evicts a seat | documented | FABEL-001, ASTRA-002 |
-| Guardian fee applies to a nonempty bounty even when no submission qualifies | None on chain; fee rule is as documented | documented | FABEL-002, ASTRA-003 |
-| Award Verdict committed before the submission deadline can go stale | Guardians can revise until `judgingDeadlineAt` | documented | FABEL-003 |
-| Large Verdict payout data raises settlement cost | None on chain; no blocking size shown | under investigation | ASTRA-001 |
-| Replacing the live guard loses earlier seat history | None on chain | under investigation | ASTRA-004 |
+Role holders are live chain state. Read them from the Hub (`owner()`,
+`coordinator()`, `coordinatorGracePeriod()`, `guardianRosterAdmin()`,
+`treasuryRecipient()`, `guardianFeeRecipient()`, `paused()`,
+`pausingDisabled()`) and from the guard (`owner()`). Known behavior and the
+status of each review finding are recorded in [KNOWN_ISSUES.md](../KNOWN_ISSUES.md)
+and the [security review index](../audits/README.md).
 
 Use local mocks or a local chain fork for research. State every privileged-role
 assumption in a report. See [SECURITY.md](../SECURITY.md) for private reporting
