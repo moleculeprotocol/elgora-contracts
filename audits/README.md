@@ -16,9 +16,10 @@ Counts describe records in these reviews, including reproduced known risks. They
 | --- | ---: | ---: |
 | Critical | 0 | 0 |
 | High | 0 | 0 |
-| Medium | 2 | 1 |
+| Medium | 1 | 1 |
 | Low | 1 | 2 |
 | Informational | 0 | 0 |
+| Documented timeout behavior ([KNOWN_ISSUES.md](../KNOWN_ISSUES.md)) | 1 record (ASTRA-006, rated Medium) | referenced, not rated |
 
 **Unresolved leads — severity not assigned**
 
@@ -27,7 +28,7 @@ Counts describe records in these reviews, including reproduced known risks. They
 | Astra | 2 |
 | Fabel | 7 |
 
-Astra's rated records are ASTRA-002/006 (Medium) and ASTRA-003 (Low). Fabel's are FABEL-001 (Medium) and FABEL-002/003 (Low). Astra's rejected arithmetic candidate and excluded administrative candidate are not counted. Fabel's seven additional lead topics group nine raw leads after removing the stale-verdict duplicate and merging the two gas leads. Some describe documented trust or policy boundaries; An unresolved lead is not a confirmed vulnerability.
+Astra's rated findings are ASTRA-002 (Medium) and ASTRA-003 (Low). Fabel's are FABEL-001 (Medium) and FABEL-002/003 (Low). The settlement timeout documented in KNOWN_ISSUES.md before either review began is shown on its own row: Astra records it as ASTRA-006 and rates it Medium; Fabel references it without a separate rating. Keeping it apart lets the two reviews count the same set of records. Astra's rejected arithmetic candidate and excluded administrative candidate are not counted. Fabel's seven additional lead topics group nine raw leads after removing the stale-verdict duplicate and merging the two gas leads. Some describe documented trust or policy boundaries. An unresolved lead is not a confirmed vulnerability.
 
 **No Critical or High findings reported does not mean Critical or High vulnerabilities cannot exist.** Both reviews have explicit scope and validation limits. No fix or risk acceptance is recorded.
 

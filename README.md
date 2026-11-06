@@ -14,10 +14,10 @@ Astra reports. These reviews used Pashov's open-source skills; they are not
 professional audits or endorsements by Pashov Audit Group. Validation limits
 and unresolved findings are recorded in each report.
 
-| Review | Critical | High | Medium | Low | Informational |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| [Astra](audits/2026-11-06-astra-ai-review/report.md) | 0 | 0 | 2 | 1 | 0 |
-| [Fabel](audits/2026-11-06-fabel-ai-review/report.md) | 0 | 0 | 1 | 2 | 0 |
+| Review | Critical | High | Medium | Low | Informational | Documented timeout behavior |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| [Astra](audits/2026-11-06-astra-ai-review/report.md) | 0 | 0 | 1 | 1 | 0 | 1 record, rated Medium |
+| [Fabel](audits/2026-11-06-fabel-ai-review/report.md) | 0 | 0 | 1 | 2 | 0 | referenced, not rated |
 
 **Unresolved leads — severity not assigned**
 
@@ -26,7 +26,7 @@ and unresolved findings are recorded in each report.
 | Astra | 2 |
 | Fabel | 7 |
 
-Counts include known risks and overlap between reviews; do not sum the rows.
+Counts include reproduced known behavior and overlap between reviews; do not sum the rows. The settlement timeout already documented in [KNOWN_ISSUES.md](KNOWN_ISSUES.md) is shown in its own column so both rows count the same set of records.
 Unresolved leads are not confirmed vulnerabilities. See the [counting rules and severity definitions](audits/README.md#severity-summary).
 **No Critical or High findings reported does not mean such vulnerabilities cannot exist.**
 
